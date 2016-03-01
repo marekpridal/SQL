@@ -1,4 +1,6 @@
-create view prumer_trid as
+use prospech;
+
+/*create view prumer_trid as*/
 select t.IDtridy,t.nazevtridy,SUM(h.znamka)/COUNT(s.IDs) as 'Průměr třídy' from trida t
 inner join student s using (IDtridy)
 inner join hodnoceni h using (IDs)
