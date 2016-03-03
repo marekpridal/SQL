@@ -16,6 +16,7 @@ having (SUM(h.znamka)/COUNT(s.IDs)) =
     );
     
 show create view prumer_trid;
+select * from prumer_trid;
     
 /* NEFUNKCNI Vytvořte dotaz, který vypíše všechny studenty třídy Ep3B, kteří nemají žádnou absenci v tomto pololetí (VD- pomocí operátorů IN, ALL a EXISTS).*/
 select s.IDs,s.prijmeni,s.jmeno,t.nazevtridy,a.duvod from student s
