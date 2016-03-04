@@ -76,3 +76,8 @@ select * from absence
 where (adddate(datum,365))>=now();
 /*create table table_veskera_absence();*/
 select * into table_veskera_absence from veskera_absence;
+/*Vytvořte pohled s názvem akt_mesic, který zobrazí všechny studenty včetně třídy, kteří mají absenci v aktuálním měsíci.*/
+select * from student s
+inner join absence a using (IDs)
+inner join trida using (IDtridy)
+where month(datum)=addmdate(now(),-1);
