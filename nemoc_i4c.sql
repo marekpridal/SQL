@@ -1,6 +1,6 @@
 create database nemoc_i4c default char set utf8 collate utf8_czech_ci;
 use nemoc_i4c;
-
+/*drop database nemoc_i4c;*/
 create table lekar
 (
 	id_lekar int auto_increment not null primary key,
