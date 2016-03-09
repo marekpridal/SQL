@@ -80,4 +80,4 @@ select * into table_veskera_absence from veskera_absence;
 select * from student s
 inner join absence a using (IDs)
 inner join trida using (IDtridy)
-where month(datum)=addmdate(now(),-1);
+where month(datum)=adddate(now(),-1);
