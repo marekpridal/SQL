@@ -81,3 +81,11 @@ select * from student s
 inner join absence a using (IDs)
 inner join trida using (IDtridy)
 where month(datum)=adddate(now(),-1);
+
+
+create user 'student'@'localhost'
+identified by 'marek';
+
+grant select
+on prospech.student
+to student@localhost;
