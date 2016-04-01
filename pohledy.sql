@@ -82,6 +82,10 @@ inner join absence a using (IDs)
 inner join trida using (IDtridy)
 where month(datum)=adddate(now(),-1);
 
+select * from student where IDs=1;
+
+update student set Prijmeni='Pepa' where IDs=1;
+
 
 create user 'student'@'localhost'
 identified by 'marek';
