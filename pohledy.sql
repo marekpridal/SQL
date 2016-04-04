@@ -93,3 +93,9 @@ identified by 'marek';
 grant select
 on prospech.student
 to student@localhost;
+
+create view akt_mesic as
+select s.jmeno,s.prijmeni,t.nazevtridy from student s
+inner join absence a using (IDs)
+left join trida t using (IDtridy)
+where month(a.datum) = month(now());
