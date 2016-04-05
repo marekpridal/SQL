@@ -1,0 +1,2 @@
+create database kinofilm default char set utf8 collate utf8_czech_ci;
+use kinofilm;
