@@ -1,2 +1,10 @@
 create database kinofilm default char set utf8 collate utf8_czech_ci;
 use kinofilm;
+
+create table film
+(
+	id_film int not null auto_increment primary key,
+	nazev varchar(20) not null,
+	zanr varchar(10),
+	rok int
+)engine=InnoDB;
