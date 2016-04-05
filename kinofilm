@@ -24,3 +24,6 @@ create table kino_film
 	id_film int not null,
 	primary key(id_kino,id_film)
 )engine=InnoDB;
+
+alter table kino_film add constraint fk_kino_film foreign key (id_kino) references kino(id_kino) on delete cascade;
+alter table kino_film add constraint fk_film_kino foreign key (id_film) references film(id_film) on delete cascade; 
