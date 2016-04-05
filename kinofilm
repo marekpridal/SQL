@@ -8,3 +8,12 @@ create table film
 	zanr varchar(10),
 	rok int
 )engine=InnoDB;
+
+create table kino
+(
+	id_kino int not null auto_increment primary key,
+	nazev varchar(20) not null,
+	mesto varchar(20) not null,
+	PSC varchar (5) not null,
+	kapacita int
+)engine=InnoDB;
