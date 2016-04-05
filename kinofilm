@@ -17,3 +17,10 @@ create table kino
 	PSC varchar (5) not null,
 	kapacita int
 )engine=InnoDB;
+
+create table kino_film
+(
+	id_kino int not null,
+	id_film int not null,
+	primary key(id_kino,id_film)
+)engine=InnoDB;
