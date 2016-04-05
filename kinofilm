@@ -26,4 +26,12 @@ create table kino_film
 )engine=InnoDB;
 
 alter table kino_film add constraint fk_kino_film foreign key (id_kino) references kino(id_kino) on delete cascade;
-alter table kino_film add constraint fk_film_kino foreign key (id_film) references film(id_film) on delete cascade; 
+alter table kino_film add constraint fk_film_kino foreign key (id_film) references film(id_film) on delete cascade;
+
+insert into film(nazev,zanr,rok) values ('Romeo a Julie','Tragedie',1992);
+select * from film;
+
+insert into kino(nazev,mesto,PSC) values ('BIO Oko','Praha',14000);
+select * from kino;
+
+insert into kino_film(ID_kino,ID_film) values (1,2);
