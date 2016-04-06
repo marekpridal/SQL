@@ -57,3 +57,11 @@ identified by 'heslo';
 grant select
 on kinofilm.film
 to 'fan@localhost';
+
+grant insert
+on kinofilm.film
+to 'fan@localhost';
+
+revoke insert
+on kinofilm.film
+from 'fan@localhost';
