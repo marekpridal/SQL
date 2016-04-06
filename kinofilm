@@ -39,3 +39,14 @@ insert into kino_film(ID_kino,ID_film) values (1,2);
 select film.nazev,kino.nazev from film
 right join kino_film using (id_film)
 right join kino using (id_kino);
+
+alter table film add column cena int;
+select * from film;
+
+update film 
+set cena=100
+where id_film=1;
+
+delete from film where id_film=5;
+
+alter table film drop column cena;
