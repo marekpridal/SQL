@@ -70,3 +70,8 @@ create view kino_mesto as
 select nazev,mesto from kino;
 
 select * from kino_mesto;
+
+create or replace view vlozit_film as
+select nazev,zanr,rok from film;
+
+insert into vlozit_film values ('Deadpool','',2016);
