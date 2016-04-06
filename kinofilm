@@ -75,3 +75,7 @@ create or replace view vlozit_film as
 select nazev,zanr,rok from film;
 
 insert into vlozit_film values ('Deadpool','',2016);
+
+select * from film;
+
+drop user 'fan@localhost';
