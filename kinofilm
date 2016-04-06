@@ -65,3 +65,8 @@ to 'fan@localhost';
 revoke insert
 on kinofilm.film
 from 'fan@localhost';
+
+create view kino_mesto as
+select nazev,mesto from kino;
+
+select * from kino_mesto;
