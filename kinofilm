@@ -50,3 +50,6 @@ where id_film=1;
 delete from film where id_film=5;
 
 alter table film drop column cena;
+
+create user 'fan@localhost'
+identified by 'heslo';
