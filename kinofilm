@@ -79,3 +79,7 @@ insert into vlozit_film values ('Deadpool','',2016);
 select * from film;
 
 drop user 'fan@localhost';
+
+create table kopie_film as (select * from film);
+
+select * from kopie_film;
