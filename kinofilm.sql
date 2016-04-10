@@ -35,6 +35,7 @@ insert into kino(nazev,mesto,PSC) values ('BIO Oko','Praha',14000);
 select * from kino;
 
 insert into kino_film(ID_kino,ID_film) values (1,2);
+select * from kino_film;
 
 select film.nazev,kino.nazev from film
 right join kino_film using (id_film)
