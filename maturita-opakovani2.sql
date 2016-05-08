@@ -22,14 +22,38 @@ select m.Kod_telefonu,m.vyrobce,m.typ,o.datum_zadani from mobily m
 inner join obsah using(Kod_telefonu)
 inner join objednavky o using(Kod_objednavky)
 where month(datum_zadani)=month(now()) and year(datum_zadani)=year(now());
-/*19*/
+/*19*//*nefunguje*/
 select m.Kod_telefonu,m.vyrobce,m.typ,o.datum_zadani from mobily m
 inner join obsah using(Kod_telefonu)
 inner join objednavky o using(Kod_objednavky)
-where adddate(182,datum_zadani)>now();
-
-insert into obsah values(1,1,10);
-
-insert into objednavky(Kod_objednavky,Kod_zakaznika,Datum_zadani) values (500,0002,now());
-
-select * from zakaznici;
+where adddate(182,o.datum_zadani)<now();
+/*22*/
+/*insert into mobily(Vyrobce,Typ,Cena_bez_DPH) values ("Samsung","Galaxy S6",18000);*/
+select * from mobily m
+left join obsah o using(Kod_telefonu)
+where o.Kod_objednavky is null and Vyrobce like "Samsung";
+/*23*/
+select * from mobily m
+left join obsah o using(Kod_telefonu)
+left join objednavky b using(Kod_objednavky)
+where o.Kod_objednavky is null and month(b.Datum_zadani)=month(now());
+/*24*/
+select Jmeno,Prijmeni,COUNT(o.Kod_objednavky) from zakaznici
+left join objednavky o using(Kod_zakaznika)
+having (count(o.Kod_objednavky)>10);
+/*25*/
+select * from mobily
+where Cena_bez_DPH>(select avg(Cena_bez_DPH) from mobily);
+/*26*/
+select * from mobily
+where Cena_bez_DPH>(select avg(Cena_bez_DPH) from mobily where Vyrobce like "Samsung");
+/*27*//*nefunguje*/
+select * from mobily
+where Cena_bez_DPH>(select sum(Cena_bez_DPH) from mobily where Vyrobce like "Samsung");
+/*28*/
+select b.Kod_objednavky,b.Kod_zakaznika,SUM(o.Pocet_kusu*m.Cena_bez_DPH),b.Datum_zadani as 'Celková cena' from objednavky b
+inner join obsah o using(Kod_objednavky)
+inner join mobily m using(Kod_telefonu)
+where year(b.Datum_zadani)=(year(now())-1)
+group by Kod_objednavky,Kod_zakaznika
+having (SUM(o.Pocet_kusu*m.Cena_bez_DPH)) >10000;
